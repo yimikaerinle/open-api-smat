@@ -1,25 +1,24 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example.com
+  title: SMAT Open API Documentation
   termsOfService: 'https://example.com/terms/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
+    url: 'https://www.smat.io'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
-  description:
-    $ref: ./info-description.md
+  # description:
+    # $ref: ./info-description.md
 tags:
-  - name: Echo
-    description: Example echo operations.
-  - name: User
-    description: Operations about users.
-  - name: Tag
-    description: This is a tag description.
+  - name: Wealth Manager
+    description: Wealth manager specifications.
+  - name: Transaction
+    description: Transaction specifications.
+  - name: Token
+    description: Token specifications.
 servers:
   - url: 'https://{tenant}/api/v1'
     variables:
@@ -28,14 +27,30 @@ servers:
         description: Your tenant id
   - url: 'https://example.com/api/v1'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  /echo:
-    $ref: paths/echo.yaml
-  /pathItem:
-    $ref: paths/path-item.yaml
-  /pathItemWithExamples:
-    $ref: paths/path-item-with-examples.yaml
+  /crypto/wealth_manager/create_address:
+    $ref: paths/crypto@wealth_manager@create_address.yaml
+  /crypto/wealth_managers/aum:
+    $ref: paths/crypto@wealth_managers@aum.yaml
+  /crypto/wealth_managers/aggregated_assets:
+    $ref: paths/crypto@wealth_managers@aggregated_assets.yaml
+  /crypto/transactions/status:
+    $ref: paths/crypto@transactions@status.yaml
+  /crypto/transactions/hex:
+    $ref: paths/crypto@transactions@hex.yaml
+  /crypto/transactions/types:
+    $ref: paths/crypto@transactions@types.yaml
+  /crypto/transactions/onramp:
+    $ref: paths/crypto@transactions@onramp.yaml
+  /crypto/transactions/offramp:
+    $ref: paths/crypto@transactions@offramp.yaml
+  /crypto/transactions/swap:
+    $ref: paths/crypto@transactions@swap.yaml
+  /crypto/transactions/staking:
+    $ref: paths/crypto@transactions@staking.yaml
+  /crypto/tokens/price:
+    $ref: paths/crypto@tokens@price.yaml
+  /crypto/token/details:
+    $ref: paths/crypto@token@details.yaml
 components:
   securitySchemes:
     main_auth:
